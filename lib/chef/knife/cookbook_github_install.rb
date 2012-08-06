@@ -141,10 +141,20 @@ class Chef
       end
 
       def sha
+        data = nil
         @sha ||= begin
-                   data = noauth_rest.get_rest("https://api.github.com/repos/#{@github_user}/#{@github_repo}/git/refs/heads/#{github_branch}")
-                   data['object']['sha']
-                 end
+	  raise "Unable to find SHA checksum" unless ['heads','tags'].any? do |ref_type|
+	    begin
+              data = noauth_rest.get_rest("https://api.github.com/repos/#{@github_user}/#{@github_repo}/git/refs/#{ref_type}/#{github_branch}")
+              ui.info("Found #{github_branch} amoung #{ref_type}.")
+              true
+            rescue
+              ui.info("Unable to find #{github_branch} amoung #{ref_type}.")
+              false
+            end
+          end
+          data['object']['sha']
+        end
       end
 
       def github_branch
