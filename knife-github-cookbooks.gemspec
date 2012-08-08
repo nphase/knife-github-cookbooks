@@ -7,10 +7,10 @@ Gem::Specification.new do |s|
   s.version           = Knife::GithubCookbooks::VERSION
   s.platform          = Gem::Platform::RUBY
   s.has_rdoc          = false
-  s.extra_rdoc_files  = ["LICENSE" ]
+  s.extra_rdoc_files  = ["LICENSE"]
   s.authors           = ["Jesse Newland"]
   s.email             = ["jesse@websterclay.com"]
-  s.homepage          = "https://github.com/websterclay/knife-github-cookbooks"
+  s.homepage          = "https://github.com/nphase/knife-github-cookbooks"
   s.summary           = %q{Github Cookbook installation support for Chef's Knife Command}
   s.description       = s.summary
   s.files             = `git ls-files`.split("\n")
