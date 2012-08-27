@@ -19,5 +19,5 @@ Gem::Specification.new do |s|
   s.require_paths     = ["lib"]
 
   s.add_dependency "launchy", "~> 0.4.0"
-  s.add_dependency "chef", "~> 0.10.0"
+  s.add_dependency "chef", "~> 10.12.0"
 end
