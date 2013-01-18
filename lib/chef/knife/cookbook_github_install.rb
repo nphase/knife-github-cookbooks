@@ -69,7 +69,7 @@ class Chef
 
         parse_name_args!
 
-        @install_path = config[:cookbook_path].first
+        @install_path = File.expand_path(Array(config[:cookbook_path]).first)
         ui.info "Installing #@cookbook_name from #{github_uri} to #{@install_path}"
 
         @repo = CookbookSCMRepoExtensions.new(@install_path, ui, config)
