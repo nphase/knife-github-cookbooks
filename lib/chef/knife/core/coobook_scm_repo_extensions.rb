@@ -6,7 +6,7 @@ class Chef
         if update_count = updated?(cookbook_name)
           ui.info "#{update_count} files updated, committing changes"
           git("add #{cookbook_name}")
-          git("commit -m 'Import #{github_path} version #{sha}' -- #{cookbook_name}")
+          git("commit -m \"Import #{github_path} version #{sha}\" -- #{cookbook_name}")
           ui.info("Creating tag cookbook-site-imported-#{cookbook_name}-#{sha}")
           git("tag -f cookbook-site-imported-#{cookbook_name}-#{sha}")
           true
