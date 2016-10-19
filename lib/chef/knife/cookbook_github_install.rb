@@ -145,7 +145,7 @@ class Chef
           data = nil
           raise "Unable to find SHA checksum" unless ['heads','tags'].any? do |ref_type|
             begin
-              data = noauth_rest.get_rest("https://api.github.com/repos/#{@github_user}/#{@github_repo}/git/refs/#{ref_type}/#{github_branch}")
+              data = noauth_rest.get("https://api.github.com/repos/#{@github_user}/#{@github_repo}/git/refs/#{ref_type}/#{github_branch}")
               ui.info("Found #{github_branch} amoung #{ref_type}.")
               true
             rescue
